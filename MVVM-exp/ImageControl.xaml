@@ -14,16 +14,8 @@
         <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Hi!"></TextBlock>
-        <Grid Grid.Row="1">
-        <Image
-
-               Source="{Binding CurrentBitmapFrame}">
-            
-        </Image>
-        <TextBlock VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-            Text="Test"></TextBlock>
-        </Grid>
+        <Image Grid.Row="1"
+               Source="{Binding CurrentBitmapFrame}"/>
         <Button Grid.Row="2" Command="{Binding ButtonCommand}">Next frame</Button>
         <Grid Grid.Row="3">
         <Grid.ColumnDefinitions>
