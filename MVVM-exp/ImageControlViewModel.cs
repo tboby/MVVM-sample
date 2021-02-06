@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -13,7 +15,7 @@ namespace MVVM_exp
 {
     public class ImageControlViewModel : ObservableObject
     {
-        public BitmapFrame CurrentBitmapFrame
+        public ImageSource CurrentBitmapFrame
         {
             get => _currentBitmapFrame;
             set => SetProperty(ref _currentBitmapFrame, value);
@@ -26,9 +28,18 @@ namespace MVVM_exp
         }
         public ICommand ButtonCommand { get; set; }
 
+        public string NewAnnotationText
+        {
+            get => _newAnnotationText;
+            set => SetProperty(ref _newAnnotationText, value);
+        }
+
+        public ICommand SaveAnnotationCommand { get; set; }
+
         private GIF gif;
-        private BitmapFrame _currentBitmapFrame;
+        private ImageSource _currentBitmapFrame;
         private int _currentFrameIndex;
+        private string _newAnnotationText;
 
         public ImageControlViewModel(GIF gif)
         {
@@ -43,8 +54,13 @@ namespace MVVM_exp
                 }
                 else
                 {
-                    CurrentFrameIndex ++ ;
+                    CurrentFrameIndex++;
                 }
+                RedrawImage();
+            });
+            SaveAnnotationCommand = new RelayCommand(() =>
+            {
+                gif.Annotations[CurrentFrameIndex] = NewAnnotationText;
                 RedrawImage();
             });
 
@@ -52,7 +68,18 @@ namespace MVVM_exp
 
         public void RedrawImage()
         {
-            CurrentBitmapFrame = gif.Frames.ElementAt(CurrentFrameIndex);
+            var bitmapSource = gif.Frames.ElementAt(CurrentFrameIndex);
+            var currentAnnotation = gif.Annotations.ElementAt(CurrentFrameIndex);
+
+            var visual = new DrawingVisual();
+            using (DrawingContext drawingContext = visual.RenderOpen())
+            {
+                drawingContext.DrawImage(bitmapSource, new Rect(0, 0, bitmapSource.PixelWidth, bitmapSource.PixelHeight));
+                drawingContext.DrawText(
+                    new FormattedText(currentAnnotation, CultureInfo.InvariantCulture, FlowDirection.LeftToRight,
+                        new Typeface("Segoe UI"), 32, Brushes.Black, 1.0), new Point(0, 0));
+            }
+            CurrentBitmapFrame = new DrawingImage(visual.Drawing);
         }
 
     }

@@ -11,12 +11,27 @@
         <RowDefinition Height="*"/>
         <RowDefinition Height="3*"/>
         <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Hi!"></TextBlock>
-        <Image Grid.Row="1"
-            Source="{Binding CurrentBitmapFrame}">
+        <Grid Grid.Row="1">
+        <Image
+
+               Source="{Binding CurrentBitmapFrame}">
             
         </Image>
+        <TextBlock VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+            Text="Test"></TextBlock>
+        </Grid>
         <Button Grid.Row="2" Command="{Binding ButtonCommand}">Next frame</Button>
+        <Grid Grid.Row="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Text="{Binding NewAnnotationText}"/>
+            <Button Grid.Column="1" Command="{Binding SaveAnnotationCommand}">Update annotation</Button>
+        </Grid>
     </Grid>
 </UserControl>
