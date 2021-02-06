@@ -13,16 +13,18 @@ using Gif.Core.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     public class ImageControlViewModel : ObservableObject
     {
+        private ImageSource _currentBitmapFrame;
         public ImageSource CurrentBitmapFrame
         {
             get => _currentBitmapFrame;
             set => SetProperty(ref _currentBitmapFrame, value);
         }
 
+        private int _currentFrameIndex;
         public int CurrentFrameIndex
         {
             get => _currentFrameIndex;
@@ -30,6 +32,7 @@ namespace MVVM_exp
         }
         public ICommand NextFrameCommand { get; }
 
+        private string _newAnnotationText;
         public string NewAnnotationText
         {
             get => _newAnnotationText;
@@ -38,19 +41,17 @@ namespace MVVM_exp
 
         public ICommand SaveAnnotationCommand { get; }
 
-        private GifBundleViewModel _gifBundleViewModel;
+        private readonly GifBundleViewModel _gifBundleViewModel;
         private GIF CurrentGif => _gifBundleViewModel.CurrentGIF;
-        private ImageSource _currentBitmapFrame;
-        private int _currentFrameIndex;
-        private string _newAnnotationText;
 
         public ImageControlViewModel(GifBundleViewModel gifBundleViewModel)
         {
             _gifBundleViewModel = gifBundleViewModel;
-            ResetImage();
             NextFrameCommand = new RelayCommand(NextFrame);
             SaveAnnotationCommand = new RelayCommand(SaveAnnotation);
             gifBundleViewModel.PropertyChanged += GifBundleViewModelOnPropertyChanged;
+
+            ResetImage();
         }
 
         private void GifBundleViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -68,6 +69,7 @@ namespace MVVM_exp
             CurrentFrameIndex = 0;
             RedrawImage();
         }
+
         public void RedrawImage()
         {
             var bitmapSource = CurrentGif.Frames.ElementAt(CurrentFrameIndex);

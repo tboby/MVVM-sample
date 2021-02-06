@@ -5,7 +5,7 @@ using System.Text;
 using Gif.Core.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     public class AnnotationListControlViewModel : ObservableObject
     {

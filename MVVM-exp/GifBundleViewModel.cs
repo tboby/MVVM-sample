@@ -6,7 +6,7 @@ using Gif.Core.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     public class GifBundleViewModel : ObservableObject
     {

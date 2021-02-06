@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     public class MainWindowViewModel : ObservableObject
     {

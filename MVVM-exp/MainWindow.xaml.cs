@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

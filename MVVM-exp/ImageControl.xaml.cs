@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MVVM_exp
+namespace Gif.App
 {
     /// <summary>
     /// Interaction logic for ImageControl.xaml
