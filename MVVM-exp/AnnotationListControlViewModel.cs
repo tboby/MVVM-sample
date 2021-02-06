@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Gif.Core.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using MVVM_exp.Models;
 
 namespace MVVM_exp
 {

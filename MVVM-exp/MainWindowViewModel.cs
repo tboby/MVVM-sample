@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
-using MVVM_exp.Models;
 
 namespace MVVM_exp
 {

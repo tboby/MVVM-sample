@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace MVVM_exp.Models
+namespace Gif.Core.Models
 {
 
     public class GIF

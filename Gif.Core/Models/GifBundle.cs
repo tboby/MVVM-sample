@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MVVM_exp.Models
+namespace Gif.Core.Models
 {
     public class GifBundle
     {

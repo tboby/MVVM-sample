@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM-exp", "MVVM-exp\MVVM-exp.csproj", "{93DD43D6-2EAD-4B60-93C4-14707655DBC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GifCLI", "GifCLI\GifCLI.csproj", "{6DA93165-2651-4463-AB1E-3E1D279C60E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gif.Core", "Gif.Core\Gif.Core.csproj", "{CF4CC289-7E1E-4524-B9C5-8CDCA9ABC0AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{93DD43D6-2EAD-4B60-93C4-14707655DBC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93DD43D6-2EAD-4B60-93C4-14707655DBC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93DD43D6-2EAD-4B60-93C4-14707655DBC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA93165-2651-4463-AB1E-3E1D279C60E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA93165-2651-4463-AB1E-3E1D279C60E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA93165-2651-4463-AB1E-3E1D279C60E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA93165-2651-4463-AB1E-3E1D279C60E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF4CC289-7E1E-4524-B9C5-8CDCA9ABC0AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF4CC289-7E1E-4524-B9C5-8CDCA9ABC0AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF4CC289-7E1E-4524-B9C5-8CDCA9ABC0AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF4CC289-7E1E-4524-B9C5-8CDCA9ABC0AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
