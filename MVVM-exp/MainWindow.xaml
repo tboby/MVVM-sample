@@ -8,7 +8,15 @@
         Title="MainWindow" Height="450" Width="800"
         x:Name="self">
     <Grid>
-        <local:ImageControl DataContext="{Binding ImageControlViewModel, ElementName=self}" d:DataContext="{d:DesignInstance local:ImageControlViewModel}"></local:ImageControl>
+        <TabControl Margin="10">
+            <TabItem DataContext="{Binding ImageControlViewModel}" Header="Image">
+                <local:ImageControl/>
+            </TabItem>
+            <TabItem DataContext="{Binding AnnotationListControlViewModel}" Header="Annotations">
+                <local:AnnotationListControl/>
+            </TabItem>
+        </TabControl>
+        <!-- <local:ImageControl DataContext="{Binding ImageControlViewModel, ElementName=self}" d:DataContext="{d:DesignInstance local:ImageControlViewModel}"></local:ImageControl> -->
 
 
     </Grid>
