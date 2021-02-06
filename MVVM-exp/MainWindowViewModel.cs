@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using MVVM_exp.Models;
 
 namespace MVVM_exp
 {
@@ -10,6 +12,7 @@ namespace MVVM_exp
     {
         private ImageControlViewModel _imageControlViewModel;
         private AnnotationListControlViewModel _annotationListControlViewModel;
+        public ICommand NextImageCommand { get; }
 
         public ImageControlViewModel ImageControlViewModel
         {
@@ -23,11 +26,13 @@ namespace MVVM_exp
             set => SetProperty(ref _annotationListControlViewModel, value);
         }
 
+
         public MainWindowViewModel()
         {
-            var gif = new GIF("test.gif");
+            var gif = new GifBundleViewModel();
             ImageControlViewModel = new ImageControlViewModel(gif);
             AnnotationListControlViewModel = new AnnotationListControlViewModel(gif);
+            NextImageCommand = gif.NextImageCommand;
         }
     }
 }

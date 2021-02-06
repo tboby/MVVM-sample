@@ -8,7 +8,11 @@
         Title="MainWindow" Height="450" Width="800"
         x:Name="self">
     <Grid>
-        <TabControl Margin="10">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" Margin="10">
             <TabItem DataContext="{Binding ImageControlViewModel}" Header="Image">
                 <local:ImageControl/>
             </TabItem>
@@ -16,6 +20,7 @@
                 <local:AnnotationListControl/>
             </TabItem>
         </TabControl>
+<Button Grid.Row="1" Command="{Binding NextImageCommand}">Next GIF</Button>
         <!-- <local:ImageControl DataContext="{Binding ImageControlViewModel, ElementName=self}" d:DataContext="{d:DesignInstance local:ImageControlViewModel}"></local:ImageControl> -->
 
 

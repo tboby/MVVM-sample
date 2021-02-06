@@ -6,7 +6,7 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
-namespace MVVM_exp
+namespace MVVM_exp.Models
 {
 
     public class GIF

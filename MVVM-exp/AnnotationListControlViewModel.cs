@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using MVVM_exp.Models;
 
 namespace MVVM_exp
 {
@@ -15,14 +17,24 @@ namespace MVVM_exp
             set => SetProperty(ref _annotations, value);
         }
 
-        private GIF _gif;
+        private GifBundleViewModel _gifBundleViewModel;
+        private GIF CurrentGif => _gifBundleViewModel.CurrentGIF;
 
-        public AnnotationListControlViewModel(GIF gif)
+        public AnnotationListControlViewModel(GifBundleViewModel gifBundleViewModel)
         {
-            _gif = gif;
-            _annotations = gif.Annotations;
+            _gifBundleViewModel = gifBundleViewModel;
+            _annotations = CurrentGif.Annotations;
+            _gifBundleViewModel.PropertyChanged += GifBundleViewModelOnPropertyChanged;
         }
 
-        public string TabName => "Annotations";
+        private void GifBundleViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            var action = e.PropertyName switch
+            {
+                nameof(GifBundleViewModel.CurrentGIF) => (() => { Annotations = CurrentGif.Annotations;}),
+                _ => (Action)(() => {})
+            };
+            action();
+        }
     }
 }

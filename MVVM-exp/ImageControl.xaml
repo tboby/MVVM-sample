@@ -16,7 +16,7 @@
         <TextBlock Grid.Row="0" Text="Hi!"></TextBlock>
         <Image Grid.Row="1"
                Source="{Binding CurrentBitmapFrame}"/>
-        <Button Grid.Row="2" Command="{Binding ButtonCommand}">Next frame</Button>
+        <Button Grid.Row="2" Command="{Binding NextFrameCommand}">Next frame</Button>
         <Grid Grid.Row="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>

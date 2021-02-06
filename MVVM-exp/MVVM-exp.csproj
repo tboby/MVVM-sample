@@ -8,10 +8,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="planet.gif" />
+    <None Remove="recycle.gif" />
     <None Remove="test.gif" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="planet.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="recycle.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="test.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
