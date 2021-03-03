@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using MVVM_exp;
 
 namespace Gif.App
 {
@@ -11,6 +12,7 @@ namespace Gif.App
     {
         private ImageControlViewModel _imageControlViewModel;
         private AnnotationListControlViewModel _annotationListControlViewModel;
+        private MyListViewModel _myListViewModel;
         public ICommand NextImageCommand { get; }
 
         public ImageControlViewModel ImageControlViewModel
@@ -25,12 +27,19 @@ namespace Gif.App
             set => SetProperty(ref _annotationListControlViewModel, value);
         }
 
+        public MyListViewModel MyListViewModel
+        {
+            get => _myListViewModel;
+            set => SetProperty(ref _myListViewModel, value);
+        }
+
 
         public MainWindowViewModel()
         {
             var gif = new GifBundleViewModel();
             ImageControlViewModel = new ImageControlViewModel(gif);
             AnnotationListControlViewModel = new AnnotationListControlViewModel(gif);
+            MyListViewModel = new MyListViewModel();
             NextImageCommand = gif.NextImageCommand;
         }
     }
